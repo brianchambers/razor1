@@ -1,0 +1,26 @@
+﻿@page
+@model razor1.Pages.HelloModel
+@{
+    string? name = Request.Query["name"];
+
+    if (string.IsNullOrEmpty(name))
+    {
+        name = "World";
+    }
+    string greeting = "Hello";
+    DateTime now = DateTime.Now;
+
+    if (now.Hour < 12)
+    {
+        greeting = "Good morning";
+    }
+    else if (now.Hour < 17)
+    {
+        greeting = "Good afternoon";
+    }
+    else
+    {
+        greeting = "Good evening";
+    }
+}
+<h1>@greeting, @name</h1>
